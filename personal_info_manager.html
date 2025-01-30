@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <header>
+            <h1>Personal Information Manager</h1>
+            <p><em>Manage your personal, work, and health information effecftively.</em></p>
+        </header>
+        <nav>
+            <p><a href="#formSection">Add new Information</a> | <a href="#tableSection">View Stored Information</a></p>
+        </nav>
+        
+        <main>
+            <section id="formSection">
+                <h1>Add New Information</h1>
+                <form id="infoForm">
+                    <p>
+                        <strong>Category:</strong>
+                        <select id="Category" name="Category" required>
+                            <option value="">Select a Category</option>
+                            <option value="Work">Work</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Health">Health</option>
+                        </select>
+                    </p>
+                    <p>
+                        <strong>Information Description:</strong>
+                        <input type="text" id="description" name="description" required>
+                    </p>
+                    <p>
+                        <button type="submit">Add Information</button>
+                    </p>
+                </form>
+            </section>
+
+            <section id="tableSelection">
+                <h1>Stored Information</h1>
+                <table id="Infotable" border="1">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Information Description</th>
+                            <th>Expiry Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Work</td>
+                            <td>Project Deadline</td>
+                            <td>2025-12-31</td>
+                            <td>
+                                <button onclick="editRow(this)">Edit</button>
+                                <button onclick="deleteRow(this)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <footer>
+            <p>Contact us at info@personalmanager.com | &copy; 2025 Personal Information Manager</p>
+        </footer>
+    
+        <script>
+            document.getElementById('infoForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+    
+                const category = document.getElementById('category').value;
+                const description = document.getElementById('description').value;
+                const expiry = document.getElementById('expiry').value;
+    
+                const table = document.getElementById('infoTable').getElementsByTagName('tbody')[0];
+                const newRow = table.insertRow();
+    
+                const categoryCell = newRow.insertCell(0);
+                const descriptionCell = newRow.insertCell(1);
+                const expiryCell = newRow.insertCell(2);
+                const actionsCell = newRow.insertCell(3);
+    
+                categoryCell.textContent = category;
+                descriptionCell.textContent = description;
+                expiryCell.textContent = expiry;
+    
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Edit';
+                editButton.setAttribute('onclick', 'editRow(this)');
+    
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.setAttribute('onclick', 'deleteRow(this)');
+    
+                actionsCell.appendChild(editButton);
+                actionsCell.appendChild(deleteButton);
+    
+                document.getElementById('infoForm').reset();
+            });
+    
+            function editRow(button) {
+                const row = button.parentNode.parentNode;
+                const category = row.cells[0].textContent;
+                const description = row.cells[1].textContent;
+                const expiry = row.cells[2].textContent;
+    
+                document.getElementById('category').value = category;
+                document.getElementById('description').value = description;
+                document.getElementById('expiry').value = expiry;
+    
+                row.parentNode.removeChild(row);
+            }
+    
+            function deleteRow(button) {
+                const row = button.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+        </script>
+    </body>
+</html>
+    
