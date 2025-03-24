@@ -1,0 +1,130 @@
+body{
+    display: grid;
+    place-items: center;
+    margin: 0;
+    background-color: rgb(204, 199, 162);
+}
+fieldset{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px;
+    width: 600px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    
+  }
+
+  .Full-Name {
+    display: flex;
+    align-items: center; 
+    gap: 15px;
+    margin-bottom: 10px; 
+  }
+
+  .Password {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    margin-bottom: 10px;
+  }
+  .email {
+    display: flex;
+    align-items: center;
+    gap: 75px; 
+    margin-bottom: 10px;
+  }
+  .Province {
+    display: flex;
+    align-items: center;
+    gap: 25px; 
+    margin-bottom: 10px;
+  }
+  .Street-Address {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+    margin-bottom: 10px;
+  }
+  
+  .postal-code {
+    display: flex;
+    align-items: center;
+    gap: 7px; 
+    margin-bottom: 10px;
+  }
+  
+.centered {
+    text-align:center;
+}
+.centered a:hover{
+    color: #e2e6eb;
+}
+.centered a {
+    padding: 10px 15px; 
+    margin: 5px;
+    display: inline-block;
+}
+form {
+    margin: 0 auto;
+}
+
+input{
+    padding: 2%;
+    margin-bottom: 15px; 
+   
+}
+.city{
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    gap: 85px; 
+    margin-bottom: 10px;
+}
+.Gender{
+    grid-column:1;
+    
+    
+}
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+table {
+    width: 100%; 
+    border-collapse: collapse; 
+    margin: 20px auto; 
+    display: table; 
+}
+
+
+th, td {
+    border: 1px solid black; 
+    padding: 10px; 
+    text-align: left; 
+}
+
+tr:nth-child(even) {
+    background-color: #e3d5d5;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; 
+}
+tr:hover {
+    background-color: #d9edf7; 
+    transition: background-color .1s ease;
+}
+footer{
+    background-color: rgb(224, 223, 228);
+    text-align: center;
+    padding: 1px
+}
+
